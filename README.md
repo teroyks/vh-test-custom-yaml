@@ -32,3 +32,15 @@ Now, you can run the execution from the command line:
 ```shell
 vh execution run say-hello
 ```
+
+## Running a Pipeline
+
+Let’s add a pipeline to the mix.
+
+(Very trivial pipeline is included in the YAML).
+
+- ✔︎ Running the pipeline as ad-hoc from CLI
+- 🚫 Cannot run the pipeline with `vh pipeline run hello`
+  - Complains about `valohai.yaml` – trying to look for it in the root directory.
+- ✔︎ Explicitly setting the project ID works around the issue:
+  - `vh --project=<PROJECT_UUID> pipeline run hello`
