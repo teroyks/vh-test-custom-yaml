@@ -3,3 +3,10 @@
     image: python:3.12
     command:
       - echo "Hello, World!"
+- pipeline:
+    name: hello
+    nodes:
+      - name: say-hello
+        step: say-hello
+        type: execution
+    edges: []
