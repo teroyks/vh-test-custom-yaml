@@ -1,0 +1,5 @@
+- step:
+    name: say-hello
+    image: python:3.12
+    command:
+      - echo "Hello, World!"
