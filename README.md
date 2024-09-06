@@ -44,3 +44,29 @@ Let’s add a pipeline to the mix.
   - Complains about `valohai.yaml` – trying to look for it in the root directory.
 - ✔︎ Explicitly setting the project ID works around the issue:
   - `vh --project=<PROJECT_UUID> pipeline run hello`
+
+## Adding Alternate Config
+
+Let’s add a second configuration file to test how these behave.
+
+Add a new file `local_conf/subconf/valohai.yaml` with still trivial, but a bit different, content (a step named `another-hello` and a pipeline `hello-too`).
+
+To be able to use the new configuration:
+
+1. Push the new configuration to the repository.
+2. Change the YAML path in the project settings.
+3. Fetch the repository into Valohai (needs to be done _after_ updating the YAML path).
+
+The latest commit is now using the new configuration.
+You can verify this by running the command:
+
+```shell
+vh --project=<PROJECT_UUID> pipeline run hello-too
+```
+
+_Note_: CLI commands are now run by default agains the configuration in the subfolder.
+But you can still run commands from the old YAML by specifying a commit ID that used that configuration.
+
+```shell
+vh --project=<PROJECT_UUID> pipeline run hello --commit=<COMMIT_ID>
+```
