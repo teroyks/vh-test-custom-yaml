@@ -1,0 +1,12 @@
+- step:
+    name: another-hello
+    image: python:3.12
+    command:
+      - echo "Hello from another config!"
+- pipeline:
+    name: hello-too
+    nodes:
+      - name: another-hello
+        step: another-hello
+        type: execution
+    edges: []
